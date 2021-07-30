@@ -30,7 +30,6 @@ function App() {
           <Route exact path="/search" component={Auth(SearchPage, null)} />
         </Switch>
       </div>
-      {/* <Footer /> */}
     </Suspense>
   );
 }
