@@ -40,7 +40,7 @@ input.error {
 }
 
 .fav-btn {
-  background: white;
+  background: transparent;
   color: #000;
   border: none;
   padding: 0;
@@ -48,7 +48,7 @@ input.error {
 }
 .fav-btn:hover,
 .fav-btn:focus {
-  background: white;
+  background: transparent;
   color: #000;
   border: none;
   padding: 0;

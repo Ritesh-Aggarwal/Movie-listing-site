@@ -2,11 +2,12 @@ import React, { Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
 import Auth from "../hoc/auth";
 // pages for this product
-import LandingPage from "./views/LandingPage/LandingPage.js";
-import LoginPage from "./views/LoginPage/LoginPage.js";
-import RegisterPage from "./views/RegisterPage/RegisterPage.js";
+import LandingPage from "./views/LandingPage/LandingPage";
+import LoginPage from "./views/LoginPage/LoginPage";
+import RegisterPage from "./views/RegisterPage/RegisterPage";
 import NavBar from "./views/NavBar/NavBar";
-import Footer from "./views/Footer/Footer";
+import FavouritePage from "./views/FavouritePage/FavouritePage.js";
+import SearchPage from "./views/SearchPage/SearchPage";
 
 //null   Anyone Can go inside
 //true   only logged in user can go inside
@@ -20,7 +21,13 @@ function App() {
         <Switch>
           <Route exact path="/" component={Auth(LandingPage, null)} />
           <Route exact path="/login" component={Auth(LoginPage, false)} />
-          <Route exact path="/register" component={Auth(RegisterPage, false)} />
+          <Route exact path="/register" component={Auth(RegisterPage, null)} />
+          <Route
+            exact
+            path="/favourites"
+            component={Auth(FavouritePage, true)}
+          />
+          <Route exact path="/search" component={Auth(SearchPage, null)} />
         </Switch>
       </div>
       {/* <Footer /> */}
