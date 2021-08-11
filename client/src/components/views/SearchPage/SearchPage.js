@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import Search from "./Search";
-import { Card, Col, Pagination, Row } from "react-bootstrap";
+import { Card, Col, Row } from "react-bootstrap";
 import { BsFillStarFill } from "react-icons/bs";
-import { API_KEY, API_URL, IMG_URL } from "../../Config.js";
+import { IMG_URL } from "../../Config.js";
 import FavBtn from "../LandingPage/FavBtn";
+import Search from "./Search";
 
 function SearchPage() {
   const [Movies, setSearches] = useState([]);
-  var info;
   return (
     <div>
       <Search setSearches={setSearches} />

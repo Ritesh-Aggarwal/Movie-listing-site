@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Card, Col, Pagination, Row } from "react-bootstrap";
 import { BsFillStarFill } from "react-icons/bs";
 import { API_KEY, API_URL, IMG_URL } from "../../Config.js";

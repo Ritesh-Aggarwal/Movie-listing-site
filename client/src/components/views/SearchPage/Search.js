@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { Form } from "react-bootstrap";
 import { API_KEY, API_URL } from "../../Config.js";
 
@@ -15,13 +15,19 @@ function Search({ setSearches }) {
       .then((response) => response.json())
       .then((response) => {
         setSearches(response.results);
-        console.log(response.results);
-        console.log(cq.current.value);
+        // console.log(response.results);
+        // console.log(cq.current.value);
       });
   }
 
-  function handleFocus() {
-    fetchingQuery = setInterval(fetchQuery, 2000);
+  // function handleFocus() {
+  //    fetchingQuery = setInterval(fetchQuery, 2000);
+  // }
+
+  function keypress(e) {
+    // console.log(e.key);
+    // console.log("cq:", cq.current.value);
+    fetchQuery();
   }
 
   return (
@@ -32,9 +38,10 @@ function Search({ setSearches }) {
             type="text"
             ref={cq}
             placeholder="Search movie/tv-show/people"
-            onFocus={handleFocus}
+            // onFocus={handleFocus}
+            onKeyUp={keypress}
             onBlur={() => {
-              clearInterval(fetchingQuery);
+              // clearInterval(fetchingQuery);
               cq.current.value = "";
             }}
           />

@@ -14,15 +14,13 @@ function FavBtn({ userFrom, movieInfo, movieId }) {
     movieRating: movieInfo.vote_average,
   };
 
-  useEffect(() => {
-    axios.post("/api/favourite/favourited", variables).then((response) => {
-      if (response.data.success) {
-        setFavourite(response.data.favourited);
-      } else {
-        alert("Failed to get data");
-      }
-    });
-  }, [variables]);
+  axios.post("/api/favourite/favourited", variables).then((response) => {
+    if (response.data.success) {
+      setFavourite(response.data.favourited);
+    } else {
+      alert("Failed to get data");
+    }
+  });
 
   function onClickFavourite() {
     if (Favourite) {
@@ -30,7 +28,7 @@ function FavBtn({ userFrom, movieInfo, movieId }) {
         .post("/api/favourite/removeFromFavorite", variables)
         .then((response) => {
           if (response.data.success) {
-            // console.log("removed from favourites");
+            console.log("removed from favourites");
             setFavourite(!response.data.success);
           } else {
             alert("Something went wrong...");
@@ -39,7 +37,7 @@ function FavBtn({ userFrom, movieInfo, movieId }) {
     } else {
       axios.post("/api/favourite/addToFavorite", variables).then((response) => {
         if (response.data.success) {
-          // console.log("added to favourites");
+          console.log("added to favourites");
           setFavourite(response.data.success);
         } else {
           alert("Something went wrong...");

@@ -8,8 +8,8 @@ const { auth } = require("../middleware/auth");
 
 router.post("/favourited", (req, res) => {
   Favourite.find({
-    movieId: req.body.movieId,
     userFrom: req.body.userFrom,
+    movieId: req.body.movieId,
   }).exec((err, info) => {
     if (err) return res.status(400).send(err);
 
