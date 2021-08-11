@@ -15,19 +15,7 @@ function Search({ setSearches }) {
       .then((response) => response.json())
       .then((response) => {
         setSearches(response.results);
-        // console.log(response.results);
-        // console.log(cq.current.value);
       });
-  }
-
-  // function handleFocus() {
-  //    fetchingQuery = setInterval(fetchQuery, 2000);
-  // }
-
-  function keypress(e) {
-    // console.log(e.key);
-    // console.log("cq:", cq.current.value);
-    fetchQuery();
   }
 
   return (
@@ -38,8 +26,7 @@ function Search({ setSearches }) {
             type="text"
             ref={cq}
             placeholder="Search movie/tv-show/people"
-            // onFocus={handleFocus}
-            onKeyUp={keypress}
+            onKeyUp={fetchQuery}
             onBlur={() => {
               // clearInterval(fetchingQuery);
               cq.current.value = "";
